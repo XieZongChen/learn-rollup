@@ -18,6 +18,15 @@
 
 // log(cjs);
 
-import('./logger').then(({ log }) => {
-  log('code splitting~');
+// import('./logger').then(({ log }) => {
+//   log('code splitting~');
+// });
+
+import fetchApi from './fetch';
+import { log } from './logger';
+
+fetchApi('/posts').then((data) => {
+  data.forEach((item) => {
+    log(item);
+  });
 });
